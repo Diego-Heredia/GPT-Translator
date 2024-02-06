@@ -10,6 +10,8 @@ import { TextArea } from './components/TextArea'
 import { useEffect } from 'react'
 import API_URL from './config/api'
 import { useDebounce } from './hooks/useDebounce'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const {
@@ -50,7 +52,29 @@ function App() {
     setResult(data.translation)
   }
   const haddleClipboard = () => {
+    if (!result || result.trim() === '') {
+      toast.error("No hay texto para copiar", {
+        position: "bottom-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
     navigator.clipboard.writeText(result)
+    toast("Texto copiado!", {
+      position: "bottom-center",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: 'dark'
+    });
   }
   const haddleSpeech = () => {
     const utterance = new SpeechSynthesisUtterance(result)
@@ -65,6 +89,7 @@ function App() {
   return (
     <Container fluid>
       <h1>GPT Translate</h1>
+      <ToastContainer />
       <Row>
         <Col>
           <Stack gap={2}>
