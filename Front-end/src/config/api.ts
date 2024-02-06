@@ -1,2 +1,2 @@
-const API_URL = 'http://localhost:3001'
+const API_URL = 'https://gpt-translator.onrender.com'
 export default API_URL
