@@ -12,7 +12,7 @@ This project, a clone of Google Translate, is enhanced with the capabilities of 
 
 ### Demo Video
 
-![Video-Traductor](/Assets/GPT%20Translate%20on%20Action.mp4)
+![Video-Traductor](/Assets/GPTTranslateonAction.gif)
 
 ## Features
 
